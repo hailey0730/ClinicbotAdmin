@@ -1,0 +1,397 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <!-- <div class="row">
+                <div class="col-lg-4 col-md-6" *ngFor="let figure of figures;">
+                    <div class="card card-stats">
+                        <div class="card-header" [attr.data-background-color]="figure.backgroundColor">
+                            <i class="material-icons">{{figure.bigIcon}}</i>
+                        </div>
+                        <div class="card-content">
+                            <p class="category">{{figure.category}}</p>
+                            <h3 class="card-title">{{figure.number}}</h3>
+                        </div>
+                        <div class="card-footer">
+                            <div class="stats">
+                                <i class="material-icons text-danger">{{figure.smallIcon}}</i>
+                                <a *ngIf="hasLink(figure);else noLink" href="{{figure.optionalLink}}">{{figure.smallText}}</a>
+                                <ng-template #noLink>{{figure.smallText}}</ng-template>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+
+        <!-- <div class="row">
+            <div class="col-md-4">
+                <div class="card card-chart">
+                    <div class="card-header" data-background-color="green" data-header-animation="true">
+                        <div class="ct-chart" id="dailySalesChart"></div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-actions">
+                            <button type="button" class="btn btn-danger btn-simple fix-broken-card">
+                                <i class="material-icons">build</i> Fix Header!
+                            </button>
+                            <button type="button" class="btn btn-info btn-simple" rel="tooltip" data-placement="bottom" title="Refresh" (click)="loadSimpleCharts();">
+                                <i class="material-icons">refresh</i>
+                            </button> -->
+        <!-- <button type="button" class="btn btn-default btn-simple" rel="tooltip" data-placement="bottom" title="Change Date">
+                                <i class="material-icons">edit</i>
+                            </button> -->
+        <!-- </div>
+                        <h4 class="card-title">Daily Sales</h4>
+                        <p class="category">
+                            <span class="text-success"><i class="fa fa-long-arrow-up"></i> 55% </span> increase in today sales.</p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <i class="material-icons">access_time</i> updated 4 minutes ago
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card card-chart">
+                    <div class="card-header" data-background-color="orange" data-header-animation="true">
+                        <div class="ct-chart" id="completedTasksChart"></div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-actions">
+                            <button type="button" class="btn btn-danger btn-simple fix-broken-card">
+                                <i class="material-icons">build</i> Fix Header!
+                            </button>
+                            <button type="button" class="btn btn-info btn-simple" rel="tooltip" data-placement="bottom" title="Refresh" (click)="loadSimpleCharts();">
+                                <i class="material-icons">refresh</i>
+                            </button> -->
+        <!-- <button type="button" class="btn btn-default btn-simple" rel="tooltip" data-placement="bottom" title="Change Date">
+                                <i class="material-icons">edit</i>
+                            </button> -->
+        <!-- </div>
+                        <h4 class="card-title">Completed Tasks</h4>
+                        <p class="category">Last Campaign Performance</p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <i class="material-icons">access_time</i> campaign sent 2 days ago
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card card-chart">
+                    <div class="card-header" data-background-color="red" data-header-animation="true">
+                        <div class="ct-chart" id="websiteViewsChart"></div>
+                    </div>
+                    <div class="card-content">
+                        <div class="card-actions">
+                            <button type="button" class="btn btn-danger btn-simple fix-broken-card">
+                                <i class="material-icons">build</i> Fix Header!
+                            </button>
+                            <button type="button" class="btn btn-info btn-simple" rel="tooltip" data-placement="bottom" title="Refresh" (click)="loadSimpleCharts();">
+                                <i class="material-icons">refresh</i>
+                            </button> -->
+        <!-- <button type="button" class="btn btn-default btn-simple" rel="tooltip" data-placement="bottom" title="Change Date">
+                                <i class="material-icons">edit</i>
+                            </button> -->
+        <!-- </div>
+                        <h4 class="card-title">Website Views</h4>
+                        <p class="category">Last Campaign Performance</p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <i class="material-icons">access_time</i> campaign sent 2 days ago
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-icon" data-background-color="rose">
+                        <i class="material-icons">assignment</i>
+                    </div>
+                    <!-- <div class="card-content">
+                        <h4 class="card-title">病人問題</h4>
+                        <div class="content table-responsive">
+                            <table class="table">
+                                <thead class="text-primary">
+                                    <tr>
+                                        <th *ngFor="let cell of tableData.headerRow">{{ cell }}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let row of tableData.dataRows">
+                                        <td>{{row[0]}}</td>
+                                        <td>{{row[1]}}</td>
+                                        <td>{{row[2]}}</td>
+                                        <td>{{row[3]}}</td>
+                                        <td>{{row[4]}}</td>
+                                        <td>{{row[5]}}</td>
+                                        <td>{{row[6]}}</td>
+                                        <td>{{row[7]}}</td>
+                                        <td>{{row[8]}}</td>
+                                        <td>-->
+                                            <!-- <md-select multiple [color]="selectTheme" placeholder="Multiple Cities" [(ngModel)]="currentCity" name="city">
+                                                <md-option *ngFor="let city of cities" [value]="city.value">
+                                                    {{ city.viewValue }}
+                                                </md-option>
+                                            </md-select> -->
+                                            <!--<md-select multiple placeholder="醫生類別" name="醫生類別" ngClass="btn btn-primary btn-round simple">
+                                                <md-option value="西醫">
+                                                     西醫
+                                                </md-option>
+                                                <md-option value="中醫">
+                                                     中醫
+                                                </md-option>
+                                            </md-select>
+                                            
+                                            <button class="btn btn-sm btn-info no-radius" type="button" (click)="approveQuestion(row)">
+                                                <i class="material-icons">done</i>
+                                                Approve</button>
+                                        </td>-->
+                                        <!-- <td><a href="#"> </a></td> -->
+
+                                   <!-- </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div> -->
+
+                    <div class="card-content">
+                        <h4 class="card-title">病人問題</h4>
+                        <div class="toolbar">
+                            <!--        Here you can write extra buttons/actions for the toolbar              -->
+                        </div>
+                        <div class="material-datatables table-responsive">
+                            <table id="datatables" class="table table-striped table-no-bordered table-hover" cellspacing="0" width="100%" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th>{{ tableData.headerRow[0] }}</th>
+                                        <th>{{ tableData.headerRow[1] }}</th>
+                                        <th>{{ tableData.headerRow[2] }}</th>
+                                        <th>{{ tableData.headerRow[3] }}</th>
+                                        <th>{{ tableData.headerRow[4] }}</th>
+                                        <th>{{ tableData.headerRow[5] }}</th>
+                                        <th>{{ tableData.headerRow[6] }}</th>
+                                        <th>{{ tableData.headerRow[7] }}</th>
+                                        <th>{{ tableData.headerRow[8] }}</th>
+                                        <th class="disabled-sorting text-right">{{ tableData.headerRow[9] }}</th>
+                                    </tr>
+                                </thead>
+                                <!-- <tfoot>
+                                    <tr>
+                                        <th>{{ tableData.footerRow[0] }}</th>
+                                        <th>{{ tableData.footerRow[1] }}</th>
+                                        <th>{{ tableData.footerRow[2] }}</th>
+                                        <th>{{ tableData.footerRow[3] }}</th>
+                                        <th>{{ tableData.footerRow[4] }}</th>
+                                        <th class="text-right">{{ tableData.footerRow[5] }}</th>
+                                    </tr>
+                                </tfoot> -->
+                                <tbody>
+                                    <tr *ngFor="let row of tableData.dataRows">
+                                        <td>{{row[0]}}</td>
+                                        <td>{{row[1]}}</td>
+                                        <td>{{row[2]}}</td>
+                                        <td>{{row[3]}}</td>
+                                        <td>{{row[4]}}</td>
+                                        <td>{{row[5]}}</td>
+                                        <td>{{row[6]}}</td>
+                                        <td>{{row[7]}}</td>
+                                        <td>{{row[8]}}</td>
+                                        <td>
+                                            <md-select multiple placeholder="醫生類別" name="醫生類別" ngClass="btn btn-primary btn-round simple">
+                                                <md-option value="西醫">
+                                                        西醫
+                                                </md-option>
+                                                <md-option value="中醫">
+                                                        中醫
+                                                </md-option>
+                                            </md-select>
+                                            
+                                            <button class="btn btn-sm btn-info no-radius" type="button" (click)="approveQuestion(row)">
+                                                <i class="material-icons">done</i>
+                                                Approve</button>
+                                        </td>
+                                        <!-- <td class="text-right">
+                                            <button class="btn btn-simple btn-info btn-icon like" rel="tooltip" title="Like" data-placement="left">
+                                                <i class="material-icons">favorite</i>
+                                            </button>
+                                            <button class="btn btn-simple btn-warning btn-icon edit" rel="tooltip" title="Edit" data-placement="left">
+                                                <i class="material-icons">dvr</i>
+                                            </button>
+                                            <button class="btn btn-simple btn-danger btn-icon remove" rel="tooltip" title="Remove" data-placement="left">
+                                                <i class="material-icons">close</i>
+                                            </button>
+                                        </td> -->
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <form method="get" action="/" class="form-horizontal">
+                        <div class="card-header card-header-text" data-background-color="rose">
+                            <h4 class="card-title">搜查問題紀錄</h4>
+                        </div>
+                        <div class="card-content">
+                            <div class="row">
+                                <div class="col-sm-6 col-lg-3">
+                                    <md-select multiple placeholder="醫生類別" name="醫生類別" ngClass="btn btn-primary btn-round simple">
+                                        <md-option value="西醫">
+                                            西醫
+                                        </md-option>
+                                        <md-option value="中醫">
+                                            中醫
+                                        </md-option>
+                                    </md-select>
+                                </div>
+                                <div class="col-sm-6 col-lg-3">
+                                    <div class="form-group label-floating ">
+                                        <label class="control-label"></label>
+                                        <input type="text" class="form-control" value="" placeholder="Category">
+                                        <!-- <span class="material-icons form-control-feedback">done</span> -->
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-lg-3">
+                                    <div class="form-group label-floating ">
+                                        <label class="control-label"></label>
+                                        <input type="text" class="form-control" value="" placeholder="Topic">
+                                        <!-- <span class="material-icons form-control-feedback">done</span> -->
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-lg-3">
+                                    <div class="form-group label-floating ">
+                                        <label class="control-label"></label>
+                                        <input type="text" class="form-control" value="" placeholder="Question">
+                                        <!-- <span class="material-icons form-control-feedback">done</span> -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <!-- <label class="col-sm-2 label-on-left">Gender</label> -->
+                                <div class="col-sm-6 col-lg-3 checkbox-radios">
+                                    <div class="radio col-xs-3">
+                                        <label>
+                                            <input type="radio" name="optionsRadios"> 男
+                                        </label>
+                                    </div>
+                                    <div class="radio col-xs-3">
+                                        <label>
+                                            <input type="radio" name="optionsRadios"> 女
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-lg-3">
+                                    <md-select placeholder="Age" name="age" ngClass="btn btn-primary btn-round simple">
+                                        <md-option value="">
+                                            20
+                                        </md-option>
+                                    </md-select>
+                                </div>
+                                <div class="col-sm-6 col-lg-3">
+                                    <div class="form-group label-floating ">
+                                        <label class="control-label"></label>
+                                        <input type="text" class="form-control" value="" placeholder="Doctor's name">
+                                        <!-- <span class="material-icons form-control-feedback">done</span> -->
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-lg-3">
+                                    <div class="form-group label-floating ">
+                                        <label class="control-label"></label>
+                                        <input type="text" class="form-control" value="" placeholder="Answer">
+                                        <!-- <span class="material-icons form-control-feedback">done</span> -->
+                                    </div>
+                                </div>
+                            </div>
+                           <div class="row">
+                                <div class="col-md-6">
+                                    <legend>From</legend>
+                                    <md-datepicker-toggle mdSuffix [for]="resultPicker">
+                                    </md-datepicker-toggle>
+                                    <md-input-container>
+                                        <input mdInput [mdDatepicker]="resultPicker" placeholder="Pick a day">
+                                    </md-input-container>
+                                    <md-datepicker #resultPicker [touchUi]="touch" [startView]="'month'">
+                                    </md-datepicker>
+                                </div>
+                                <!-- <div class="col-md-6">
+                                    <legend>To</legend>
+                                    <md-datepicker-toggle mdSuffix [for]="resultPicker">
+                                    </md-datepicker-toggle>
+                                    <md-input-container>
+                                        <input mdInput [mdDatepicker]="resultPicker" placeholder="Pick a day">
+                                    </md-input-container>
+                                    <md-datepicker #resultPicker [touchUi]="touch" [startView]="'month'">
+                                    </md-datepicker>
+                                </div> -->
+                            </div>
+                            <div class="row">
+                               <div class="col-sm-6 col-lg-3">
+                                <button class="btn btn-sm btn-info no-radius" type="button" (click)="approveQuestion(row)">
+                                    <!-- <i class="material-icons">done</i> -->
+                                    Search</button>
+                               </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row" *ngIf="hasSearchResult();">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-text" data-background-color="rose">
+                        <h4 class="card-title">搜查結果</h4>
+                    </div>
+                    <div class="card-content">
+                        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                            <ng-template *ngFor="let result of results;">
+                            <div>
+                                <!-- Question -->
+                                <h4>{{result.Age}}歲{{result.Gender}} {{result.CreateDateTime}}</h4>
+                                <h4 class="blue">Category: {{result.Category}} | Topic: {{result.Topic}}</h4>
+                                <p>{{result.Question}}</p>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="headingOne">
+                                    <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                        <h4 class="panel-title">
+                                            更多詳細答案
+                                            <i class="material-icons">keyboard_arrow_down</i>
+                                        </h4>
+                                    </a>
+                                </div>
+                                <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                                    <div class="panel-body" *ngFor="let answer of result.Answers">
+                                        <h4>{{answer.DoctorName}}醫生 {{answer.AnswerDateTime}}</h4>
+                                       {{answer.Answer}}
+                                    </div>
+                                </div>
+                            </div>
+                            </ng-template>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+</div>

@@ -1,0 +1,10 @@
+.table > tbody > tr {
+    position: relative;
+    height: 15em;
+}
+
+.btn.btn-round, .navbar .navbar-nav > li > a.btn.btn-round {
+    border-radius: 30px;
+    width: 15em;
+    display: block;
+}
