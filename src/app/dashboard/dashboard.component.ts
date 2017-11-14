@@ -11,6 +11,14 @@ import { SelectModule } from 'ng2-select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
+import { IMyDrpOptions, IMyDateRangeModel } from 'mydaterangepicker';
+
+declare interface DataTable {
+    headerRow: string[];
+    footerRow: string[];
+    dataRows: string[][];
+}
+
 declare const require: any;
 
 declare const $: any;
@@ -32,10 +40,21 @@ export class DashboardComponent implements OnInit, AfterViewInit {
 
     }
     // constructor(private navbarTitleService: NavbarTitleService, private notificationService: NotificationService) { }
-    public tableData: TableData;
+    public dataTable: DataTable;
+    
+    public tableData: DataTable;
     public figures: JSON[];
-    public conversations: any[];
     public results: any[];
+    public doctors: string;
+    public doctorsSearch: string;
+    public age: number;
+    public beginDate: any;
+    public endDate: any;
+    myDateRangePickerOptions: IMyDrpOptions = {
+        // other options...
+        dateFormat: 'dd.mm.yyyy',
+    };
+
     private adminName = "Bob";
     private adminPic = "../../assets/img/faces/avatar.jpg";
     private testlink = "http://www.drcare.ai/php/test.php";
@@ -43,7 +62,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     private usersDataLink = "http://hayhay0730.000webhostapp.com/loadUsersQuestions.php";
     private conversationLink = "http://hayhay0730.000webhostapp.com/conversation.php";
     private searchResult = "http://www.drcare.ai/Doctor/php/loadQA.php";
-
+    
 
     startAnimationForLineChart(chart: any) {
         let seq: any, delays: any, durations: any;
@@ -102,30 +121,52 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     }
     // constructor(private navbarTitleService: NavbarTitleService) { }
     public ngOnInit() {
-        
+
         //get users' questions from server===========================================
         this.dashboardService.getJson(this.usersDataLink).then((data) => {
-            this.tableData = {
+            this.dataTable = {
                 headerRow: data['headerRow'],
+                footerRow: data['headerRow'],
                 dataRows: data['Users']
-            }
+               
+            };
+
+            console.log(this.dataTable);
 
         });
+        // this.dataTable = {
+        //     headerRow: [
+        //         "ID", "Category", "Topic", "Question", "Gender", "Age", "Date", "Fname", "Lname", "Actions"
+        //     ],
+        //     footerRow: [
+        //         "ID","Category","Topic","Question","Gender","Age","Date","Fname","Lname","Actions"
+        //     ],
+        //     dataRows: [
+        //         [
+        //             "41", "普通科", "主題係主題", "你好", "男性", "32", "07 Nov 2017", "生", "陳"
+        //         ],
+        //         [
+        //             "42","普通科", "有痰", "我有痰，係唔係感冒？", "女性", "23", "07 Nov 2017", "小姐", "趙"
+        //         ],
+        //         [
+        //             "43","普通科","咳","咳咗三日點算好?咳咗三日點算好?咳咗三日點算好?","女性","30","07 Nov 2017","小姐","趙"
+        //         ]
+        //     ]
 
-
-
+        //     };
+  
         //test plug in charts data from server===============================================
-        console.log("call loadSimpleCharts from OnInit");
-        this.loadSimpleCharts();
+        // console.log("call loadSimpleCharts from OnInit");
+        // this.loadSimpleCharts();
 
         //testing get json from dashboardService=================================
         //   console.log('outside promise');  //DEBUG
-        this.dashboardService.getJson(this.testlink).then((data) => {
-            this.figures = data;
+        // this.dashboardService.getJson(this.testlink).then((data) => {
+        //     this.figures = data;
             // console.log(this.figures);  //DEBUG
             // $('.card-header').attr('data-background-color', this.figures[2]['backgroundColor']);
 
-        });
+        // });
 
         //initialize multipleBarsChart=========================================
         const dataMultipleBarsChart = {
@@ -175,50 +216,77 @@ export class DashboardComponent implements OnInit, AfterViewInit {
         new Chartist.Pie('#chartPreferences', dataPreferences, optionsPreferences);
 
 
-        //initialize conversation block========================================
-        this.dashboardService.getJson(this.conversationLink).then((data) => {
-            this.conversations = data;
-        });
-
-
         //test search result appearance========================================
         this.dashboardService.getJson(this.searchResult).then((data) => {
             this.results = data;
+            
+            // console.log(this.results);
         });
-
 
     }
 
+     
+
     ngAfterViewInit() {
-        const breakCards = true;
-        if (breakCards === true) {
-            // We break the cards headers if there is too much stress on them :-)
-            $('[data-header-animation="true"]').each(function () {
-                const $fix_button = $(this);
-                const $card = $(this).parent('.card');
-                $card.find('.fix-broken-card').click(function () {
-                    const $header = $(this).parent().parent().siblings('.card-header, .card-image');
-                    $header.removeClass('hinge').addClass('fadeInDown');
+        // const breakCards = true;
+        // if (breakCards === true) {
+        //     // We break the cards headers if there is too much stress on them :-)
+        //     $('[data-header-animation="true"]').each(function () {
+        //         const $fix_button = $(this);
+        //         const $card = $(this).parent('.card');
+        //         $card.find('.fix-broken-card').click(function () {
+        //             const $header = $(this).parent().parent().siblings('.card-header, .card-image');
+        //             $header.removeClass('hinge').addClass('fadeInDown');
 
-                    $card.attr('data-count', 0);
+        //             $card.attr('data-count', 0);
 
-                    setTimeout(function () {
-                        $header.removeClass('fadeInDown animate');
-                    }, 480);
-                });
+        //             setTimeout(function () {
+        //                 $header.removeClass('fadeInDown animate');
+        //             }, 480);
+        //         });
 
-                $card.mouseenter(function () {
-                    const $this = $(this);
-                    const hover_count = parseInt($this.attr('data-count'), 10) + 1 || 0;
-                    $this.attr('data-count', hover_count);
-                    //    if (hover_count >= 20) {
-                    //        $(this).children('.card-header, .card-image').addClass('hinge animated');
-                    //    }
-                });
-            });
-        }
+        //         $card.mouseenter(function () {
+        //             const $this = $(this);
+        //             const hover_count = parseInt($this.attr('data-count'), 10) + 1 || 0;
+        //             $this.attr('data-count', hover_count);
+        //             //    if (hover_count >= 20) {
+        //             //        $(this).children('.card-header, .card-image').addClass('hinge animated');
+        //             //    }
+        //         });
+        //     });
+        // }
+
+
+        $('#datatables').DataTable({
+            'pagingType': 'full_numbers',
+            'lengthMenu': [[10, 25, 50, -1], [10, 25, 50, 'All']],
+            responsive: true,
+            language: {
+                search: '_INPUT_',
+                searchPlaceholder: 'Search records',
+            }
+
+        });
+
+        const table = $('#datatables').DataTable();
+
+
+        // Delete a record
+        table.on('click', '.remove', function (e: any) {
+            const $tr = $(this).closest('tr');
+            table.row($tr).remove().draw();
+            e.preventDefault();
+        });
+
+        // Like record
+        table.on('click', '.like', function () {
+            alert('You clicked on Like button');
+        });
+
         //  Activate the tooltips
         $('[rel="tooltip"]').tooltip();
+    
+        
     }
 
     hasLink(figure): boolean {
@@ -239,6 +307,15 @@ export class DashboardComponent implements OnInit, AfterViewInit {
 
     approveQuestion(row) {
         //write row into DB
+        console.log(row);
+    }
+
+    denyQuestion(row){
+        //remove row from DB
+        console.log(row);
+        const table = $('#datatables').DataTable();
+        const $tr = $(this).closest('tr');
+        table.row($tr).remove().draw();
     }
 
     hasSearchResult(): boolean{
@@ -248,6 +325,51 @@ export class DashboardComponent implements OnInit, AfterViewInit {
         }
         return bool;
     }
+
+    selectDoctors(selectedValue){
+        this.doctors = selectedValue;
+        console.log(this.doctors);
+    }
+
+    selectDoctorsSearch(selectedValue) {
+        this.doctorsSearch = selectedValue;
+        console.log(this.doctorsSearch);
+    }
+
+    selectAge(age){
+        this.age = age;
+        console.log(this.age);
+    }
+
+    // dateRangeChanged callback function called when the user apply the date range. This is
+    // mandatory callback in this option. There are also optional inputFieldChanged and
+    // calendarViewChanged callbacks.
+    onDateRangeChanged(event: IMyDateRangeModel) {
+        // event properties are: event.beginDate, event.endDate, event.formatted,
+        // event.beginEpoc and event.endEpoc
+        
+        this.beginDate = event.beginDate;
+        this.endDate = event.endDate;
+        
+        console.log(this.beginDate);
+        console.log(this.endDate);
+    }
+    
+    searchHistory(){
+        console.log(this.doctorsSearch);
+        console.log($('#Category').val());
+        console.log($('#Topic').val());
+        console.log($('#Question').val());
+        console.log($('input[name="optionsRadios"]:checked').val());
+        console.log(this.age);
+        console.log($('#docName').val());
+        console.log($('#Answer').val());
+        console.log(this.beginDate);
+        console.log(this.endDate);
+    }
+
+    
+
 
     loadSimpleCharts() {
 

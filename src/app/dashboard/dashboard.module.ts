@@ -8,6 +8,8 @@ import { DashboardComponent } from './dashboard.component';
 import { DashboardRoutes } from './dashboard.routing';
 import { MaterialModule, MdDatepickerModule, MdNativeDateModule, MdInputModule, MdSelectModule } from '@angular/material';
 
+import { MyDateRangePickerModule } from 'mydaterangepicker';
+
 @NgModule({
     imports: [
         CommonModule,
@@ -18,7 +20,8 @@ import { MaterialModule, MdDatepickerModule, MdNativeDateModule, MdInputModule, 
         MdDatepickerModule,
         MdInputModule,
         MdNativeDateModule,
-        MdSelectModule
+        MdSelectModule,
+        MyDateRangePickerModule 
     ],
     declarations: [DashboardComponent]
 })
