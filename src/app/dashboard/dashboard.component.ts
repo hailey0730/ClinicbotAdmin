@@ -45,8 +45,8 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     public tableData: DataTable;
     public figures: JSON[];
     public results: any[];
-    public doctors: string;
-    public doctorsSearch: string;
+    public doctors: any[] = [];
+    public doctorsSearch: any[];
     public age: number;
     public beginDate: any;
     public endDate: any;
@@ -131,7 +131,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
                
             };
 
-            console.log(this.dataTable);
+            // console.log(this.dataTable);
 
         });
         // this.dataTable = {
@@ -222,6 +222,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
             
             // console.log(this.results);
         });
+        
 
     }
 
@@ -256,7 +257,27 @@ export class DashboardComponent implements OnInit, AfterViewInit {
         //     });
         // }
 
+        //  Activate the tooltips
+        $('[rel="tooltip"]').tooltip();
+    
+        
+    }
 
+    approveQuestion(row) {
+        //write row into DB
+        console.log(row);
+        console.log(this.doctors);
+    }
+
+    denyQuestion(row){
+        //remove row from DB
+        console.log(row);
+        const table = $('#datatables').DataTable();
+        const $tr = $(this).closest('tr');
+        table.row($tr).remove().draw();
+    }
+
+    refreshTable(){
         $('#datatables').DataTable({
             'pagingType': 'full_numbers',
             'lengthMenu': [[10, 25, 50, -1], [10, 25, 50, 'All']],
@@ -282,64 +303,8 @@ export class DashboardComponent implements OnInit, AfterViewInit {
         table.on('click', '.like', function () {
             alert('You clicked on Like button');
         });
-
-        //  Activate the tooltips
-        $('[rel="tooltip"]').tooltip();
-    
-        
     }
 
-    hasLink(figure): boolean {
-        var bool = false;
-        if (figure.optionalLink) {
-            bool = true;
-        }
-        return bool;
-    }
-
-    IsAdmin(name): boolean {
-        var bool = false;
-        if (name == this.adminName) {
-            bool = true;
-        }
-        return bool;
-    }
-
-    approveQuestion(row) {
-        //write row into DB
-        console.log(row);
-    }
-
-    denyQuestion(row){
-        //remove row from DB
-        console.log(row);
-        const table = $('#datatables').DataTable();
-        const $tr = $(this).closest('tr');
-        table.row($tr).remove().draw();
-    }
-
-    hasSearchResult(): boolean{
-        var bool = false;
-        if(this.results != null){
-            bool = true;
-        }
-        return bool;
-    }
-
-    selectDoctors(selectedValue){
-        this.doctors = selectedValue;
-        console.log(this.doctors);
-    }
-
-    selectDoctorsSearch(selectedValue) {
-        this.doctorsSearch = selectedValue;
-        console.log(this.doctorsSearch);
-    }
-
-    selectAge(age){
-        this.age = age;
-        console.log(this.age);
-    }
 
     // dateRangeChanged callback function called when the user apply the date range. This is
     // mandatory callback in this option. There are also optional inputFieldChanged and
@@ -351,8 +316,6 @@ export class DashboardComponent implements OnInit, AfterViewInit {
         this.beginDate = event.beginDate;
         this.endDate = event.endDate;
         
-        console.log(this.beginDate);
-        console.log(this.endDate);
     }
     
     searchHistory(){
@@ -366,6 +329,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
         console.log($('#Answer').val());
         console.log(this.beginDate);
         console.log(this.endDate);
+        console.log(this.doctors);
     }
 
     
