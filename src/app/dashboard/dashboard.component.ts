@@ -50,6 +50,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     public age: number;
     public beginDate: any;
     public endDate: any;
+    public doctype: string[];
     myDateRangePickerOptions: IMyDrpOptions = {
         // other options...
         dateFormat: 'dd.mm.yyyy',
@@ -62,7 +63,6 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     private usersDataLink = "http://hayhay0730.000webhostapp.com/loadUsersQuestions.php";
     private conversationLink = "http://hayhay0730.000webhostapp.com/conversation.php";
     private searchResult = "http://www.drcare.ai/Doctor/php/loadQA.php";
-    
 
     startAnimationForLineChart(chart: any) {
         let seq: any, delays: any, durations: any;
@@ -134,6 +134,10 @@ export class DashboardComponent implements OnInit, AfterViewInit {
             // console.log(this.dataTable);
 
         });
+
+        this.doctype = ["西醫", "中醫", "牙科", "物理治療", "脊骨神經科", "專業治療", "心理學"];
+        
+
         // this.dataTable = {
         //     headerRow: [
         //         "ID", "Category", "Topic", "Question", "Gender", "Age", "Date", "Fname", "Lname", "Actions"
